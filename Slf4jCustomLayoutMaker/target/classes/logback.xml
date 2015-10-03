@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">		
+		<encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+     	  <layout class="com.jp.IPSLoggingLayout" />
+    	</encoder>
+	</appender>
+ 	<appender name="perf4jFileAppender" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+           	<pattern>%d{HH:mm:ss.SSS} hostname=%property{HOSTNAME} class=thread=[%thread] level=%2level l=%logger{100} mg= %message%n</pattern>           
+        </encoder>
+    </appender>
+  	<!-- <turboFilter class="ch.qos.logback.classic.turbo.MarkerFilter">
+		<Name>CONFIDENTIAL_FILTER</Name>
+		<Marker>CONFIDENTIAL</Marker>
+		<OnMatch>ALLOW</OnMatch>
+	</turboFilter> -->
+	
+	<root level="DEBUG">
+		<appender-ref ref="STDOUT" />
+		<!-- <appender-ref ref="perf4jFileAppender"/> -->
+	</root>
+</configuration>
